@@ -59,6 +59,37 @@ module model {
     }
 
     /**
+     * Clase Ficha
+     */
+     class Ficha{
+
+        /**
+         * PK
+         */
+         int id;
+
+         /**
+          * Numero: 1133
+          */
+         int numero;
+
+         /**
+          * Nombre: Misifus
+          */
+         string nombre;
+
+         /**
+          * Especie: Gatuno
+          */
+         string especie;
+
+         /**
+          * Fecha nacimiento.
+          */
+         string fecha;
+     }
+
+    /**
      * The base system.
      */
      interface TheSystem {
