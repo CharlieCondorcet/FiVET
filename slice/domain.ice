@@ -130,6 +130,22 @@ module model {
            string veterinario;
       }
 
+     /**
+      * Clase Examen de Control
+      */
+      class Examen{
+
+          /**
+           * Tipo: Radiologia
+           */
+           string tipo;
+
+          /**
+           * Fecha del Examen
+           */
+           string fecha;
+      }
+
     /**
      * The base system.
      */
