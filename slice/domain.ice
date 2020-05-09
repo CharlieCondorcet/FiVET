@@ -89,6 +89,47 @@ module model {
          string fecha;
      }
 
+     /**
+      * Clase Control para las mascotas
+      */
+      class ControlMascota{
+
+          /**
+           * Fecha de emision
+           */
+           string fecha;
+
+          /**
+           * Fecha de proximo control
+           */
+           string proximoControl;
+
+          /**
+           * Temperatura mascota
+           */
+           double temperatura;
+
+          /**
+           * Peso mascota
+           */
+           double peso;
+
+          /**
+           * Altura mascota
+           */
+           double altura;
+
+          /**
+           * Diagnostico para la mascota
+           */
+           string diagnostico;
+
+          /**
+           * Nombre veterinario
+           */
+           string veterinario;
+      }
+
     /**
      * The base system.
      */
