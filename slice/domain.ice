@@ -146,6 +146,17 @@ module model {
            string fecha;
       }
 
+     /**
+      * Clase Foto de Mascota
+      */
+      class Foto{
+
+         /**
+          * Direccion foto mascota: perfilMisifus.jpg
+          */
+         string urlFoto;
+      }
+
     /**
      * The base system.
      */
