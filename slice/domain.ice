@@ -59,6 +59,14 @@ module model {
     }
 
     /**
+     * Enumeracion para atributo Sexo
+     */
+     enum Sexo {
+         MACHO,
+         HEMBRA
+     }
+
+    /**
      * Clase Ficha
      */
      class Ficha{
@@ -87,6 +95,11 @@ module model {
           * Fecha nacimiento.
           */
          string fecha;
+
+         /**
+          * Sexo paciente; Macho/Hembra
+          */
+         Sexo sexo;
      }
 
      /**
@@ -146,6 +159,7 @@ module model {
            string fecha;
       }
 
+    //TODO: modificar Foto, puede no ser una clase.
      /**
       * Clase Foto de Mascota
       */
