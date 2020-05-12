@@ -66,6 +66,14 @@ module model {
          HEMBRA
      }
 
+     /**
+      * TIpo de Paciente
+      */
+     enum TipoPaciente {
+         INTERNO,
+         EXTERNO
+     }
+
     /**
      * Clase Ficha
      */
@@ -100,6 +108,11 @@ module model {
           * Sexo paciente; Macho/Hembra
           */
          Sexo sexo;
+
+         /**
+          * Tipo pacinte; Interno/Externo
+          */
+         TipoPaciente tipoPaciente;
      }
 
      /**
