@@ -156,6 +156,20 @@ module model {
            string veterinario;
       }
 
+    //TODO: documentar bien e implementar
+    /**
+     * Interface para operaciones basicas en el sistema.
+     */
+     interface Contratos {
+
+          ingresarControl(control: ControlMascota): ControlMascota
+
+          ingresarDueño(dueño: Persona): Persona
+
+          obtenerFicha(numero: int): Ficha
+
+     }
+
      /**
       * Clase Examen de Control
       */
