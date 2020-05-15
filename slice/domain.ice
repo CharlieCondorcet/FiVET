@@ -105,6 +105,11 @@ module model {
          string fecha;
 
          /**
+          * Raza de la mascota.
+          */
+         string raza;
+
+         /**
           * Sexo paciente; Macho/Hembra
           */
          Sexo sexo;
@@ -156,19 +161,6 @@ module model {
            string veterinario;
       }
 
-    //TODO: documentar bien e implementar
-    /**
-     * Interface para operaciones basicas en el sistema.
-     */
-     interface Contratos {
-
-          ingresarControl(control: ControlMascota): ControlMascota
-
-          ingresarDueño(dueño: Persona): Persona
-
-          obtenerFicha(numero: int): Ficha
-
-     }
 
      /**
       * Clase Examen de Control
@@ -209,5 +201,48 @@ module model {
         long getDelay(long clientTime);
 
      }
+
+     //TODO: documentar bien e implementar
+     /**
+      * Interface para operaciones basicas en el sistema.
+      */
+      interface Contratos {
+
+         /**
+          * Ingresar una Ficha (paciente), historias de usuario 1.
+          */
+         Ficha ingresarPaciente (Ficha ficha);
+
+         /**
+          * Obtener una Ficha dado el Numero de Ficha.
+          */
+         Ficha obtenerPaciente (int numeroFicha);
+
+         /**
+          * Ingresar una Persona (dueño), historias de usuario 2.
+          */
+         Persona ingresarPersona (Persona persona);
+
+         /**
+          * Obtener una Persona dado su Rut.
+          */
+         Persona obtenerPersona (string rut);
+
+         /**
+          * Ingresar un Control, historias de usuario 3.
+          */
+         ControlMascota ingresarControl (ControlMascota control);
+
+         /**
+          * Ingresar una Foto, historias de usuario 4.
+          */
+          Foto ingresarFoto (Foto foto);
+
+         /**
+          * Ingresar un Examen, historias de usuario 5.
+          */
+         Examen ingresarExamen (Examen examen);
+
+      }
 
 }
