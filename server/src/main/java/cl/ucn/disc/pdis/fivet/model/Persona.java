@@ -15,12 +15,45 @@
 
 package cl.ucn.disc.pdis.fivet.model;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 /**
  *  The Persona class.
  *
  * @author Charlie Condorcet.
  */
-
+@DatabaseTable(tableName = "persona")
 public class Persona {
 
+    /**
+     * The id: Primary Key and autoincrement.
+     */
+    @DatabaseField(generatedId = true)
+    private Long id;
+
+    /**
+     * The Nombre.
+     */
+    @DatabaseField(canBeNull = false)
+    private String nombre;
+
+    /**
+     * The Apellido.
+     */
+    @DatabaseField(canBeNull = false)
+    private String apellido;
+
+    /**
+     * The Rut.
+     */
+    @DatabaseField(canBeNull = false, index = true)
+    private String rut;
+
+    /**
+     * Empty contructor; Default visivility + empty body.
+     */
+    Persona() {
+        // nothing here.
+    }
 }
