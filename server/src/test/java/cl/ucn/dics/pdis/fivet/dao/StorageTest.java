@@ -37,4 +37,57 @@ import java.util.List;
  */
 public final class StorageTest {
 
+    /**
+     * The Logger.
+     */
+    private static final Logger log = LoggerFactory.getLogger(StorageTest.class);
+
+    /**
+     * Testing de ORMLite + H2 (database).
+     */
+    @Test
+    public void testDatabase() throws SQLException {
+
+        // The database to use (in RAM memory)
+        String databaseUrl = "jdbc:h2:mem:fivet_db";
+
+        // Connection source: autoclose with the try/catch
+        try (ConnectionSource connectionSource = new JdbcConnectionSource(databaseUrl)) {
+
+            // Ctrate the table from the Persona annotations
+            TableUtils.createTableIfNotExists(connectionSource, Persona.class);
+
+            // The dao of Persona
+            Dao<Persona, Long> daoPersona = DaoManager.createDao(connectionSource, Persona.class);
+
+            // New Persona
+            Persona persona = new Persona("Andres", "Cervantes", "191807057");
+
+            // Insert Persona into the database
+            int tuples = daoPersona.create(persona);
+            log.debug("Id: {}", persona.getId());
+
+            Assertions.assertEquals(1, tuples, "Save tuples !=1");
+
+            // Get from db
+            Persona personaDb = daoPersona.queryForId(persona.getId());
+
+            Assertions.assertEquals(persona.getNombre(), personaDb.getNombre(),"Names not equals!");
+            Assertions.assertEquals(persona.getApellido(), personaDb.getApellido(),"Surname not equals!");
+            Assertions.assertEquals(persona.getRut(), personaDb.getRut(),"Ruts not equals!");
+
+            // Search by rut: Select * FROM  'persona' WHERE 'rut' = '191807057'
+            List<Persona> personaList = daoPersona.queryForEq("rut","191807057");
+            Assertions.assertEquals(1, personaList.size(), "More than one Persona!");
+
+            // Not found by rut
+            Assertions.assertEquals(0, daoPersona.queryForEq("rut","13").size(),"Found somethings!");
+
+        } catch (IOException e) {
+            log.error("Error", e);
+        }
+
+
+    }
+
 }

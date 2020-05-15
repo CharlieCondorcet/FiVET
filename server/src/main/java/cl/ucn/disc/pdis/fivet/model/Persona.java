@@ -70,6 +70,14 @@ public final class Persona {
     }
 
     /**
+     * Getter to Id.
+     * @return id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
      * Getter to Nombre.
      * @return nombre
      */
