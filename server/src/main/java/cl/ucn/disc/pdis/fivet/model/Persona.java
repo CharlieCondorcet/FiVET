@@ -24,7 +24,7 @@ import com.j256.ormlite.table.DatabaseTable;
  * @author Charlie Condorcet.
  */
 @DatabaseTable(tableName = "persona")
-public class Persona {
+public final class Persona {
 
     /**
      * The id: Primary Key and autoincrement.
@@ -53,7 +53,44 @@ public class Persona {
     /**
      * Empty contructor; Default visivility + empty body.
      */
-    Persona() {
+     public Persona() {
         // nothing here.
     }
+
+    /**
+     * Principal Constructor
+     * @param nombre
+     * @param apellido
+     * @param rut
+     */
+    public Persona(String nombre, String apellido, String rut) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.rut = rut;
+    }
+
+    /**
+     * Getter to Nombre.
+     * @return nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Getter to Apellido.
+     * @return apellido
+     */
+    public String getApellido() {
+        return apellido;
+    }
+
+    /**
+     * Getter to Rut.
+     * @return rut
+     */
+    public String getRut() {
+        return rut;
+    }
+
 }
