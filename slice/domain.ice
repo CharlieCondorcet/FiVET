@@ -102,12 +102,17 @@ module model {
          /**
           * Fecha nacimiento.
           */
-         string fecha;
+         string fechaNacimiento;
 
          /**
           * Raza de la mascota.
           */
          string raza;
+
+         /**
+          * Color paciente: blanco perlado.
+          */
+          string color;
 
          /**
           * Sexo paciente; Macho/Hembra
@@ -123,17 +128,22 @@ module model {
      /**
       * Clase Control para las mascotas
       */
-      class ControlMascota{
+      class Control{
+
+          /**
+           * PK
+           */
+           int id;
 
           /**
            * Fecha de emision
            */
-           string fecha;
+           string fechaEmision;
 
           /**
            * Fecha de proximo control
            */
-           string proximoControl;
+           string fechaProximoControl;
 
           /**
            * Temperatura mascota
@@ -155,40 +165,8 @@ module model {
            */
            string diagnostico;
 
-          /**
-           * Nombre veterinario
-           */
-           string veterinario;
       }
 
-
-     /**
-      * Clase Examen de Control
-      */
-      class Examen{
-
-          /**
-           * Tipo: Radiologia
-           */
-           string tipo;
-
-          /**
-           * Fecha del Examen
-           */
-           string fecha;
-      }
-
-    //TODO: modificar Foto, puede no ser una clase.
-     /**
-      * Clase Foto de Mascota
-      */
-      class Foto{
-
-         /**
-          * Direccion foto mascota: perfilMisifus.jpg
-          */
-         string urlFoto;
-      }
 
     /**
      * The base system.
@@ -202,47 +180,52 @@ module model {
 
      }
 
-     //TODO: documentar bien e implementar
-     /**
-      * Interface para operaciones basicas en el sistema.
-      */
-      interface Contratos {
 
-         /**
-          * Ingresar una Ficha (paciente), historias de usuario 1.
-          */
-         Ficha ingresarPaciente (Ficha ficha);
+    /**
+     * Interface para operaciones basicas en el sistema.
+     */
+    interface Contratos {
 
-         /**
-          * Obtener una Ficha dado el Numero de Ficha.
-          */
-         Ficha obtenerPaciente (int numeroFicha);
+        /**
+         * Deseo registrar los datos de un paciente.
+         *
+         * @param ficha a crear en el backend.
+         * @return the ficha almacenada en el backend (con numero asignado).
+         */
+        Ficha crearFicha(Ficha ficha);
 
-         /**
-          * Ingresar una Persona (dueño), historias de usuario 2.
-          */
-         Persona ingresarPersona (Persona persona);
+        /**
+         * Deseo registrar los datos del duenio de un paciente.
+         *
+         * @param persona a crear en el backend.
+         * @return the Persona almacenada en el backend.
+         */
+        Persona crearPersona(Persona persona);
 
-         /**
-          * Obtener una Persona dado su Rut.
-          */
-         Persona obtenerPersona (string rut);
+        /**
+         * Deseo registrar los datos de un Control.
+         *
+         * @param numeroFicha al cual sera asignado el control.
+         * @param control a agregar.
+         */
+        Control crearControl(int numeroFicha, Control control);
 
-         /**
-          * Ingresar un Control, historias de usuario 3.
-          */
-         ControlMascota ingresarControl (ControlMascota control);
+        /**
+         * Dado un numero de ficha, retorna la ficha asociada.
+         *
+         * @param numero de la ficha a obtener.
+         * @return the Ficha.
+         */
+        Ficha obtenerFicha(int numero);
 
-         /**
-          * Ingresar una Foto, historias de usuario 4.
-          */
-          Foto ingresarFoto (Foto foto);
+        /**
+         * Dado un numero de rut obtiene la persona.
+         *
+         * @param rut de la persona a buscar.
+         * @return the Persona.
+         */
+        Persona obtenerPersona(string rut);
 
-         /**
-          * Ingresar un Examen, historias de usuario 5.
-          */
-         Examen ingresarExamen (Examen examen);
-
-      }
+     }
 
 }
