@@ -18,56 +18,57 @@
 module model {
 
     /**
-     * Clase Persona
+     * Clase Persona (duenio de mascota).
      */
     class Persona {
 
         /**
-         * Pk
+         * Primary Key.
          */
         int id;
 
         /**
-         * Rut: 113335557
+         * Rut: 113335557.
          */
         string rut;
 
         /**
-         * Nombre
+         * Nombre.
          */
         string nombre;
 
         /**
-         * Direccion
+         * Direccion.
          */
         string direccion;
 
         /**
-         * Telefono Fijo: +55 55 550000
+         * Telefono Fijo: +55 55 550000.
          */
         long telefonoFijo;
 
-       /**
-         * Telefono Fijo: +55 55 550000
+        /**
+         * Telefono Fijo: +55 55 550000.
          */
         long telefonoMovil;
 
         /**
-         * Email
+         * Correo electronico.
          */
         string email;
+
     }
 
     /**
-     * Enumeracion para atributo Sexo
+     * Sexo del paciente.
      */
-     enum Sexo {
-         MACHO,
-         HEMBRA
-     }
+    enum Sexo {
+        MACHO,
+        HEMBRA
+    }
 
      /**
-      * TIpo de Paciente
+      * Tipo de paciente.
       */
      enum TipoPaciente {
          INTERNO,
@@ -75,111 +76,100 @@ module model {
      }
 
     /**
-     * Clase Ficha
+     * Clase Ficha (identifica una mascota).
      */
-     class Ficha{
+    class Ficha{
 
         /**
-         * PK
+         * Primary key.
          */
-         int id;
+        int id;
 
-         /**
-          * Numero: 1133
-          */
-         int numero;
+        /**
+         * Numero: 1133.
+         */
+        int numero;
 
-         /**
-          * Nombre: Misifus
-          */
-         string nombre;
+        /**
+         * Nombre: Misifus.
+         */
+        string nombre;
 
-         /**
-          * Especie: Gatuno
-          */
-         string especie;
+        /**
+         * Especie: Gatuno.
+         */
+        string especie;
 
-         /**
-          * Fecha nacimiento.
-          */
-         string fechaNacimiento;
+        /**
+         * Fecha nacimiento.
+         * Format: ISO_ZONED_DATE_TIME
+         */
+        string fechaNacimiento;
 
-         /**
-          * Raza de la mascota.
-          */
-         string raza;
+        /**
+         * Raza de la mascota.
+         */
+        string raza;
 
-         /**
-          * Color paciente: blanco perlado.
-          */
-          string color;
+        /**
+         * Color paciente: blanco perlado.
+         */
+        string color;
 
-         /**
-          * Sexo paciente; Macho/Hembra
-          */
-         Sexo sexo;
+        /**
+         * Sexo paciente: Macho/Hembra.
+         */
+        Sexo sexo;
 
-         /**
-          * Tipo pacinte; Interno/Externo
-          */
-         TipoPaciente tipoPaciente;
+        /**
+         * Tipo pacinte: Interno/Externo.
+         */
+        TipoPaciente tipoPaciente;
      }
-
-     /**
-      * Clase Control para las mascotas
-      */
-      class Control{
-
-          /**
-           * PK
-           */
-           int id;
-
-          /**
-           * Fecha de emision
-           */
-           string fechaEmision;
-
-          /**
-           * Fecha de proximo control
-           */
-           string fechaProximoControl;
-
-          /**
-           * Temperatura mascota
-           */
-           double temperatura;
-
-          /**
-           * Peso mascota
-           */
-           double peso;
-
-          /**
-           * Altura mascota
-           */
-           double altura;
-
-          /**
-           * Diagnostico para la mascota
-           */
-           string diagnostico;
-
-      }
-
 
     /**
-     * The base system.
+     * Clase Control para las mascotas.
      */
-     interface TheSystem {
+    class Control{
 
         /**
-         * @return the diference in time between client and server.
+         * Primary key.
          */
-        long getDelay(long clientTime);
+        int id;
 
-     }
+        /**
+         * Fecha de emision.
+         * Format: ISO_ZONED_DATE_TIME
+         */
+        string fechaEmision;
 
+        /**
+         * Fecha de proximo control.
+         * Format: ISO_ZONED_DATE_TIME
+         */
+        string fechaProximoControl;
+
+        /**
+         * Temperatura mascota.
+         */
+        double temperatura;
+
+        /**
+         * Peso mascota.
+         */
+        double peso;
+
+        /**
+         * Altura mascota.
+         */
+        double altura;
+
+        /**
+         * Diagnostico para la mascota.
+         */
+        string diagnostico;
+
+    }
 
     /**
      * Interface para operaciones basicas en el sistema.
@@ -226,6 +216,18 @@ module model {
          */
         Persona obtenerPersona(string rut);
 
-     }
+    }
+
+    /**
+     * The base system.
+     */
+    interface TheSystem {
+
+        /**
+         * @return the diference in time between client and server.
+         */
+        long getDelay(long clientTime);
+
+    }
 
 }
