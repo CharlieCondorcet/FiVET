@@ -1,6 +1,9 @@
 # FiVET
 
-  <b>Intellij Idea  -  Java  -  ZeroC Ice  -  UCN</b>
+Sistem to FiVET with server [FivetServer](https://github.com/CharlieCondorcet/FiVET_Server).
+
+  **Intellij Idea  -  Java  -  ZeroC Ice  -  UCN**
+
 
 ##  Description
   Software must be created to manage the veterinary care of clinets.
@@ -13,6 +16,11 @@
   entire project revolves around the administrative part of customer 
   service and this is where the main functionality should be emphasized.  
   
+  
+##  Fivet Server
+  You can find the dedicated server to consult the system data in 
+  [FivetServer](https://github.com/CharlieCondorcet/FiVET_Server)
+
   
 ##  Status
   Is currently in full development.
